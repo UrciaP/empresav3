@@ -52,7 +52,7 @@
 
     @if ($errors->any())
             <div class="alert alert-danger alert-fixed-bottom">
-                <strong>Datos incorrectos:</strong>
+                <strong>LLenar todos los campos:</strong>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
