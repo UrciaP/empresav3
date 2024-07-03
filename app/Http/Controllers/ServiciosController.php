@@ -7,7 +7,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Persona;
 
-
 use App\Http\Requests\CreateServicioRequest;
 
 class ServiciosController extends Controller
@@ -16,18 +15,31 @@ class ServiciosController extends Controller
         
         // $servicios = Servicio::paginate(10);
 
+        $servicios = Persona::get();
+        // $servicios = Persona::latest()->paginate();
 
-        $servicios = Persona::latest()->paginate();
+        return view('servicios', compact('servicios'));
+        // $servicios = Servicio::latest()->paginate(10);
 
-        return view('servicios', compact('servicios')); 
+
+        // $servicios=Servicio::latest('titulo')->get();
+        // $servicios=Servicio::get();
+        // $servicios = Servicio::latest()->paginate();
+        
+        // $servicios=[
+        //     ['titulo'=>'Mantenimiento'],
+        //     ['titulo'=>'Afinamiento'],
+        //     ['titulo'=>'cambio de aceite'],
+        //     ['titulo'=>'Lavado tipo salón'],
+        // ];
+        
     }
-    public function show($id){
-
-        return view('show',[
-            'servicio'=>Servicio::find($id)
-        ]);
-
-        // return Servicio::find($id);
+    public function show($id)
+    {
+        return view('show',
+            ['persona'=>Persona::find($id)]
+        );
+        // return  Persona::find($id);
     }
 
     public function create(){

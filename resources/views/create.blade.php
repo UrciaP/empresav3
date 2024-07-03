@@ -6,7 +6,7 @@
 
     <table cellpadding="3" cellspaceing="5">
         <tr>
-            <th colspan="4">Crear nuevo servicio</th>
+            <th colspan="4">Agregar nuevo personal</th>
         </tr>
         <form action="{{ route('servicios.store') }}" method="POST">
             {{ csrf_field() }}

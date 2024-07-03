@@ -7,14 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Persona extends Model
 {
+    use HasFactory;
     protected $table = 'Persona';
-    protected $fillable = [
-        'cperApellido',
-        'cPerNombre',
-        'cPerDireccion',
-        'dPerFecNac',
-        'nPerEdad',
-        'nPerSueldo',
-        'nPerEstado',
-    ];
+    protected $primaryKey = 'nPerCodigo';
 }
