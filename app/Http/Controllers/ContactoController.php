@@ -20,8 +20,9 @@ class ContactoController extends Controller
             'asunto.required' => 'El campo asunto debe tener al menos :min caracteres.',
             'mensaje.required' => 'El campo mensaje debe tener al menos :min caracteres.',
         ]);
-        // Mail::to('hello@example.com')->send(new MensajeRecibido($mensaje));
-        return new MensajeRecibido($mensaje);
-        return 'Datos validados';
+        Mail::to('t512701420@unitru.edu.pe')->queue(new MensajeRecibido($mensaje));
+        // return new MensajeRecibido($mensaje);
+        // return 'Datos validados';
+        return back()->with('estado', 'Gracias por ponerte en contacto con nosotros');
     }
 }

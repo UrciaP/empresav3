@@ -11,7 +11,7 @@ use App\Http\Requests\CreateServicioRequest;
 
 class ServiciosController extends Controller
 {
-    public function servicios(){
+    public function index(){
         
         // $servicios = Servicio::paginate(10);
 

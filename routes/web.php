@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServiciosController;
 
 // $servicios=[
 //     ['titulo'=>'Servicio 1'],
@@ -15,10 +16,23 @@ Route::view('/','home')->name('home');
 Route::view('nosotros','nosotros')->name('nosotros');
 
 // controlador 1
-Route::get('personas','App\Http\Controllers\ServiciosController@servicios' )->name('servicios');
-Route::get('personas/crear','App\Http\Controllers\ServiciosController@create')->name('servicios.create');
-Route::post('personas','App\Http\Controllers\ServiciosController@store')->name('servicios.store');
-Route::get('personas/{id}','App\Http\Controllers\ServiciosController@show')->name('servicios.show');
+// Ruta para listar todos los recursos
+Route::get('personas', [ServiciosController::class, 'index'])->name('servicios');
+
+// Ruta para mostrar el formulario de creación de un nuevo recurso
+Route::get('personas/crear', [ServiciosController::class, 'create'])->name('servicios.create');
+
+// Ruta para almacenar un nuevo recurso
+Route::post('personas', [ServiciosController::class, 'store'])->name('servicios.store');
+
+// Ruta para mostrar un recurso específico
+Route::get('personas/{id}', [ServiciosController::class, 'show'])->name('servicios.show');
+
+
+// Route::resource('personas', ServiciosController::class)->names('servicios');
+
+
+
 
 
 // controlador 2
@@ -37,3 +51,7 @@ Route::post('contacto','App\Http\Controllers\ContactoController@store');
 
 //el q use
 // Route::view('servicios','servicios', compact('servicios'))->name('servicios');
+
+Auth::routes(['register'=>'false']);
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
