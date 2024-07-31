@@ -17,22 +17,28 @@ Route::view('nosotros','nosotros')->name('nosotros');
 
 // controlador 1
 // Ruta para listar todos los recursos
-Route::get('personas', [ServiciosController::class, 'index'])->name('servicios');
+Route::get('personas', [ServiciosController::class, 'index'])->name('servicios')->middleware('auth');
 
 // Ruta para mostrar el formulario de creación de un nuevo recurso
-Route::get('personas/crear', [ServiciosController::class, 'create'])->name('servicios.create');
+Route::get('personas/crear', [ServiciosController::class, 'create'])->name('servicios.create')->middleware('auth');;
 
 // Ruta para almacenar un nuevo recurso
-Route::post('personas', [ServiciosController::class, 'store'])->name('servicios.store');
+Route::post('personas', [ServiciosController::class, 'store'])->name('servicios.store')->middleware('auth');;
 
 // Ruta para mostrar un recurso específico
-Route::get('personas/{id}', [ServiciosController::class, 'show'])->name('servicios.show');
+Route::get('personas/{id}', [ServiciosController::class, 'show'])->name('servicios.show')->middleware('auth');;
 
 
 // Route::resource('personas', ServiciosController::class)->names('servicios');
 
-
-
+// Route::resource('personas', Servicios2Controller::class)
+//     ->only(['index','create', 'store', 'show'])
+//     ->names([
+//         'index' => 'servicios',
+//         'create' => 'servicios.create',
+//         'store' => 'servicios.store',
+//         'show' => 'servicios.show',
+//     ]);
 
 
 // controlador 2

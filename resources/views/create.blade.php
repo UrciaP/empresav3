@@ -6,19 +6,29 @@
 
     <table cellpadding="3" cellspaceing="5">
         <tr>
-            <th colspan="4">Agregar nuevo personal</th>
+            <th colspan="4">Agregar nuevo servicio</th>
         </tr>
+
+        <tr>
+            <td colspan="2">
+                <div class="custom-file">
+                    <input type="file" name="image" class="custom-file-input" id="customfile">
+                    <label class="custom-file-label" for="customFile">Seleccionar Imágen</label>
+                </div>
+            </td>
+        </tr>
+
         <form action="{{ route('servicios.store') }}" method="POST">
             {{ csrf_field() }}
             <tr>
-                <td>Apellido</td>
+                <td>Titulo</td>
                 <td><input type="text" name="cperApellido"  value="{{ old('cperApellido') }}"></td>
             </tr>
             <tr>
-                <td>Nombre</td>
+                <td>Descripcion</td>
                 <td><input type="text" name="cPerNombre" value="{{ old('cPerNombre') }}"></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Dirección</td>
                 <td><input type="text" name="cPerDireccion" value="{{ old('cPerDireccion') }}"></td>
             </tr>
@@ -43,7 +53,7 @@
                         <option value="0" {{ old('nPerEstado') == '0' ? 'selected' : '' }}>0</option>
                     </select>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <td colspan="2"><button>guardar</button></td>
             </tr>

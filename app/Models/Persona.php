@@ -10,4 +10,13 @@ class Persona extends Model
     use HasFactory;
     protected $table = 'Persona';
     protected $primaryKey = 'nPerCodigo';
+    protected $fillable = [
+        'cperApellido',
+        'cPerNombre',
+        'cPerDireccion',
+        'dPerFecaNac',
+        'nPerEdad',
+        'nPerSueldo',
+        'nPerEstado',
+    ];
 }
