@@ -18,6 +18,8 @@
             </td>
         </tr>
 
+
+
         <form action="{{ route('servicios.store') }}" method="POST">
             {{ csrf_field() }}
             <tr>
@@ -25,7 +27,7 @@
                 <td><input type="text" name="cperApellido"  value="{{ old('cperApellido') }}"></td>
             </tr>
             <tr>
-                <td>Descripcion</td>
+                <td>Descripcion:</td>
                 <td><input type="text" name="cPerNombre" value="{{ old('cPerNombre') }}"></td>
             </tr>
             <!-- <tr>
